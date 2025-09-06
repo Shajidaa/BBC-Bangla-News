@@ -95,7 +95,7 @@ const displayNewsCategory=(articles
     })
   
 }
-
+//***********book marks add**********************************************///
 newsContainer.addEventListener('click',(e) =>{
    
     if (e.target.innerText==='Bookmark') {
@@ -103,6 +103,9 @@ newsContainer.addEventListener('click',(e) =>{
         
     }
 })
+
+
+
 const handleBookmarks=(e)=>{
     const title = e.target.parentNode.children[0].innerText;
     const id = e.target.parentNode.id;
@@ -113,6 +116,7 @@ const handleBookmarks=(e)=>{
     }
 
     bookMarks.push({ title, id });
+    
     showBookmarks(bookMarks);
 }
 
@@ -138,9 +142,12 @@ const handleDeleteBookmark=(bookmarkId)=>{
     // console.log(bookmarkId);
     const filterBookMark= bookMarks.filter(bookMark =>bookMark.id!== bookmarkId);
     // console.log(filterBookMark);
+    bookMarks=filterBookMark;
     showBookmarks(filterBookMark);
+    // console.log(filterBookMark);
     
 }
+
 
 const showLoading=()=>{
     newsContainer.innerHTML=`
